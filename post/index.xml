@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Tian Yu Fan</title>
+        <link>https://tianyufan.github.io/post/</link>
+        <description>Recent content in Posts on Tian Yu Fan</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tianyufan.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Catch-22</title>
+        <link>https://tianyufan.github.io/p/catch-22/</link>
+        <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tianyufan.github.io/p/catch-22/</guid>
+        <description>&lt;img src="https://tianyufan.github.io/p/catch-22/Arm.jpg" alt="Featured image of post Catch-22" /&gt;&lt;p&gt;The main objective of this project was to implement forward &amp;amp; inverse kinematics, velocity control, trajectory planning, and computer vision pipelines to pick-and-sort objects of different colors.&lt;/p&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Software&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ubuntu 18.04&lt;/td&gt;
+&lt;td&gt;Operating System&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATLAB&lt;/td&gt;
+&lt;td&gt;Software Framework&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OpenCV&lt;/td&gt;
+&lt;td&gt;Computer Vision Toolbox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;p&gt;We used the Hephaestus-Arm, a 3-DOF serial arm with an ItsyBitsy control. Smart Servos actuated the robot with integrated encoders for positional feedback. A camera mounted on a stand captured the locations of the colored balls.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tianyufan.github.io/p/catch-22/Arm.jpg&#34;
+	width=&#34;3036&#34;
+	height=&#34;4048&#34;
+	srcset=&#34;https://tianyufan.github.io/p/catch-22/Arm_hu0f5808fd91bff8183a7cbfa8ed1552fb_3258687_480x0_resize_q75_box.jpg 480w, https://tianyufan.github.io/p/catch-22/Arm_hu0f5808fd91bff8183a7cbfa8ed1552fb_3258687_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hephaestus&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;software&#34;&gt;Software&lt;/h1&gt;
+&lt;h2 id=&#34;computer-vision-pipeline&#34;&gt;Computer Vision Pipeline&lt;/h2&gt;
+&lt;p&gt;The camera captured a snapshot of the field for ball detection. We undistorted the image because the camera output was fisheye, rescaling the extremities of the frame. The resulting image captures regions outside the workspace, so we masked these areas.&lt;/p&gt;
+&lt;p&gt;We defined a saturation threshold to detect the location of colorful objects within the camera frame. The pipeline eroded this resulting image to sharpen edges and reduce noise. Blob analysis calculated bounding boxes contouring the colorful balls from the eroded output image.&lt;/p&gt;
+&lt;p&gt;We determined hue ranges that categorized orange, yellow, green, and pink balls. The center pixel of each bounding box decided the color of the ball.&lt;/p&gt;
+&lt;h2 id=&#34;ball-positioning&#34;&gt;Ball positioning&lt;/h2&gt;
+&lt;p&gt;The objective is to convert the location of each ball into the frame defining the arm&amp;rsquo;s base. This conversion facilitates kinematic operations with the robot arm.&lt;/p&gt;
+&lt;p&gt;We used the MATLAB calibration tool to obtain the transformation between the pixel location of a ball and its position within the camera frame. The camera&amp;rsquo;s position to the fixed frame defined on the checkboard is known. The robot arm&amp;rsquo;s base frame is also known relative to the checkerboard frame. The ball&amp;rsquo;s location to the robot base is the product of all these transformation matrices.&lt;/p&gt;
+&lt;h2 id=&#34;inverse-kinematics&#34;&gt;Inverse Kinematics&lt;/h2&gt;
+&lt;p&gt;The inverse kinematics is the process of calculating the actuator states based on the actuator position. We employed a geometric approach to estimate the rotational value of the three joints.&lt;/p&gt;
+&lt;h2 id=&#34;actuation&#34;&gt;Actuation&lt;/h2&gt;
+&lt;p&gt;We actuated the arm to the previously calculated positions. The end-effector grasped a ball on the field and relocated it based on color.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>It Ends with Us</title>
+        <link>https://tianyufan.github.io/p/it-ends-with-us/</link>
+        <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tianyufan.github.io/p/it-ends-with-us/</guid>
+        <description>&lt;img src="https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_Introduction.jpg" alt="Featured image of post It Ends with Us" /&gt;&lt;p&gt;The main objective of this project was to redesign the WPI RBE3001 curriculum with the OpenManipulatorX. The WPI Robotics Engineering department has been continuously revising their RBE3001 hardware. The endless efforts ends with us.&lt;/p&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Software&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ubuntu 20.04&lt;/td&gt;
+&lt;td&gt;Operating System&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Robotic Operating System (ROS)&lt;/td&gt;
+&lt;td&gt;Software Framework&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C++&lt;/td&gt;
+&lt;td&gt;Programming Language&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATLAB&lt;/td&gt;
+&lt;td&gt;Software Framework&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OpenCV&lt;/td&gt;
+&lt;td&gt;Computer Vision Toolbox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;p&gt;We are using the OpenManipulatorX arm, a 4-DOF robot arm with an U2D2 control. Dynamixels actuator the robot with integrated encoders for positional, velocity, and torque control.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_Introduction.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;OpenManipulatorX&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;software-design&#34;&gt;Software Design&lt;/h1&gt;
+&lt;h2 id=&#34;rosc-controller-interface&#34;&gt;ROS/C++ Controller Interface&lt;/h2&gt;
+&lt;p&gt;I designed the hardware interface in C++ based on the quality of the Dynamixel support library. The C++ controller writes joint angles to the robot and the gripper position. Additionally, it can read positional, velocity, and effort data from each joint of the robot. It also sets the velocity profile of the trajectory during movement.&lt;/p&gt;
+&lt;p&gt;This interface is a ROS node to support communication with multiple languages. This node allows users to specify the robot&amp;rsquo;s desired state and read the robot&amp;rsquo;s current state through ROS topics.&lt;/p&gt;
+&lt;h2 id=&#34;matlab-control-interface&#34;&gt;MATLAB Control Interface&lt;/h2&gt;
+&lt;p&gt;MATLAB is the primary software for the control of autonomous behavior. These scripts process the forward &amp;amp; inverse kinematics, generate trajectories, capture joint data, visualize the data stream, and much more.&lt;/p&gt;
+&lt;h1 id=&#34;curriculum&#34;&gt;Curriculum&lt;/h1&gt;
+&lt;p&gt;The curriculum that we design will integrate the following concepts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Forward Kinematics using DH Tables&lt;/li&gt;
+&lt;li&gt;Trajectory Generation&lt;/li&gt;
+&lt;li&gt;Inverse Kinematics&lt;/li&gt;
+&lt;li&gt;Differential Kinematics (Velocity Kinematics)&lt;/li&gt;
+&lt;li&gt;Computer Vision&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Stewart Gough Platform</title>
+        <link>https://tianyufan.github.io/p/stewart-gough-platform/</link>
+        <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tianyufan.github.io/p/stewart-gough-platform/</guid>
+        <description>&lt;img src="https://tianyufan.github.io/p/stewart-gough-platform/Stewart.png" alt="Featured image of post Stewart Gough Platform" /&gt;&lt;p&gt;The main objective of this project was to balance a metallic ball on a Stewart-Gough platform. This uses the forward &amp;amp; inverse kinematics and control of a parallel manipulator.&lt;/p&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Software&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ubuntu 18.04&lt;/td&gt;
+&lt;td&gt;Operating System&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C++&lt;/td&gt;
+&lt;td&gt;Programming Language&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;p&gt;We designed and built our own Stewart Gough Platform using small servos, rods with ball joints, and resistive touch sensor. The platform balances a metallic ball.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tianyufan.github.io/p/stewart-gough-platform/Stewart.png&#34;
+	width=&#34;2713&#34;
+	height=&#34;2919&#34;
+	srcset=&#34;https://tianyufan.github.io/p/stewart-gough-platform/Stewart_hu9753f7e9e680744dbe95988d4b3256fd_1561429_480x0_resize_box_3.png 480w, https://tianyufan.github.io/p/stewart-gough-platform/Stewart_hu9753f7e9e680744dbe95988d4b3256fd_1561429_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Turtlebot&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;92&#34;
+		data-flex-basis=&#34;223px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;software-overviewsoftware&#34;&gt;Software OverviewSoftware&lt;/h1&gt;
+&lt;p&gt;We determined the metallic ball position based on the readings from the touch sensor. Our goal was to center the ball in the middle of the platform. Therefore, two PID controllers in the roll and pitch directions determined the desired orientation of the platform. We applied the inverse kinematics from this desired pose, producing the required leg lengths. Small servos controlled the leg lengths, so we calculated the necessary angle from each servo to attain the desired platform pose.&lt;/p&gt;
+&lt;h1 id=&#34;outcomes&#34;&gt;Outcomes&lt;/h1&gt;
+&lt;p&gt;We were able to successfullly balance the metallic ball!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Turtles All The Way Down</title>
+        <link>https://tianyufan.github.io/p/turtles-all-the-way-down/</link>
+        <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tianyufan.github.io/p/turtles-all-the-way-down/</guid>
+        <description>&lt;img src="https://tianyufan.github.io/p/turtles-all-the-way-down/Background.png" alt="Featured image of post Turtles All The Way Down" /&gt;&lt;p&gt;The main objective of this project was to implement algorithms for mobile robot mapping, localization, path planning, and navigation in an unknown environment.&lt;/p&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Software&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ubuntu 18.04&lt;/td&gt;
+&lt;td&gt;Operating System&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Robotics Operating System (ROS)&lt;/td&gt;
+&lt;td&gt;Software Framework&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;Programming Language&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gazebo&lt;/td&gt;
+&lt;td&gt;Robotics Simulator&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Rviz&lt;/td&gt;
+&lt;td&gt;Robotics Visualization&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GMapping&lt;/td&gt;
+&lt;td&gt;LiDAR Mapping&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AMCL&lt;/td&gt;
+&lt;td&gt;Localization&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;hardware&#34;&gt;Hardware&lt;/h1&gt;
+&lt;p&gt;We used a TurtleBot3 Burger, a two-wheeled differential drive robot with an onboard Raspberry Pi and OpenCR control. The Turtlebot has a mounted 360 degrees LiDAR for point cloud mapping and encoders for odometry feedback.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://robosklep.com/img/cms/turtlebot3_burger_components.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Turtlebot&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;software&#34;&gt;Software&lt;/h1&gt;
+&lt;h2 id=&#34;occupancy-grid&#34;&gt;Occupancy Grid&lt;/h2&gt;
+&lt;p&gt;For successful exploration and navigation of an unknown environment, the Turtlebot scanned its environment using LiDAR to obtain point clouds.
+OpenSlam&amp;rsquo;s GMapping package is a laser-based SLAM (Simultaneous Localization and Mapping) that converts the point cloud scans into a 2D occupancy grid. Each cell in the occupancy grid contains the probability of its location being an obstacle. We defined a threshold for these probabilities, generating a map of drivable and undrivable areas.&lt;/p&gt;
+&lt;h2 id=&#34;configuration-space&#34;&gt;Configuration Space&lt;/h2&gt;
+&lt;p&gt;Expanding occupied regions reduced the occupancy grid&amp;rsquo;s configuration space (C-space). This C-space introduces a buffer between the robot and the obstacles, minimizing the chances of collision. However, unavoidable collisions are inevitable because of unaccounted mechanical and sensor errors.&lt;/p&gt;
+&lt;h2 id=&#34;frontiers-and-centroids&#34;&gt;Frontiers and Centroids&lt;/h2&gt;
+&lt;p&gt;We traversed through this occupancy grid to find cells dividing the known and unknown regions, called frontier cells. Adjacent cells form frontiers, and the middle cell is the target centroid. The criteria for optimality depended on the frontier size and centroid distance from the robot&amp;rsquo;s location. Among all calculated centroids, we chose the most optimal one. We deprioritize tiny and distant frontiers to minimize to economize time.&lt;/p&gt;
+&lt;h2 id=&#34;localization&#34;&gt;Localization&lt;/h2&gt;
+&lt;p&gt;While mapping, we used the adjusted odometry readings from the GMapping package to determine the current estimate of the robot&amp;rsquo;s pose within the map frame. Once the mapping phase is complete, the robot switches to the AMCL package for localization to alleviate the unnecessary overhead. The AMCL package uses the Monte Carlo localization algorithm, which iteratively scatters points across the map based on the current LiDAR readings and the expected features from the map. The algorithm iteratively redistributes the points in likely areas of the robot&amp;rsquo;s location. In the best-case scenario, all the points converge in one place, successfully localizing the robot.&lt;/p&gt;
+&lt;h2 id=&#34;path-planning&#34;&gt;Path Planning&lt;/h2&gt;
+&lt;p&gt;We planned from the robot&amp;rsquo;s current location to the optimized centroid using A*. The graph was the occupancy grid that labeled cells as obstacles or traversable. The neighbor of a cell were its traversable and immediate orthogonal and diagonal neighbors. The primary heuristic was the euclidean distance between the start and end grid cells. The C-space cells carried increased weight such that regular paths never traverse these cells, but the TurtleBot can navigate out of this area if it must do so. Additionally, proximity to a wall increased the weight for collision avoidance. We commanded the robot to follow this generated path.&lt;/p&gt;
+&lt;h2 id=&#34;outcomes&#34;&gt;Outcomes&lt;/h2&gt;
+&lt;p&gt;We successfully mapped the entire unknown environment, returned to the starting location, and drove to a randomly specified place!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
