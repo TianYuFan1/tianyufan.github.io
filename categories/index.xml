@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on Tian Yu Fan</title>
-        <link>https://tianyufan.github.io/categories/</link>
+        <link>https://tianyufan1.github.io/tianyufan.github.io/categories/</link>
         <description>Recent content in Categories on Tian Yu Fan</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language><atom:link href="https://tianyufan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language><atom:link href="https://tianyufan1.github.io/tianyufan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
